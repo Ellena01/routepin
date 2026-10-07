@@ -1,69 +1,49 @@
-import Image from "next/image";
+
+import { Hero } from "@/components/sections/hero"
+import { SplitContent } from "@/components/blocks/split-content"
+import { DestinationGallery } from "@/components/sections/destination-gallery"
+import { WhyRoutePin } from "@/components/sections/why-routepin"
+import { ToursBanner } from "@/components/sections/tours-banner"
+import { TravelPlan } from "@/components/sections/travel-plan"
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <main className="flex flex-col min-h-screen bg-[#0A0D14]">
+      <Hero />
+      
+      <div className="w-full pt-16 pb-24">
+        {/* About Section */}
+        <SplitContent 
+          eyebrow="About"
+          title={<>Become Part of<br/>Two-Week Canada Western Conquest</>}
+          description="Fascinating landscapes, national parks with thousand-year-old trees up to the sky, an Indian village with more than 80 totem poles. Climb the mountains, swim in the healing hot springs, spend the night under the starry sky with RoutePin."
+          imageUrl="https://images.unsplash.com/photo-1503614472-8c93d56e92ce?q=80&w=2011&auto=format&fit=crop"
+          imagePosition="right"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+
+        {/* Travel Map Section */}
+        <SplitContent 
+          eyebrow="Travel Map"
+          title="Explore & Enjoy"
+          description="From Vancouver to Calgary, 2 provinces, 7 cities, 8 stops, 2017 km. Visit the highest peak of the Canadian Rocky Mountains, enjoy the beauty of the Sunwapta Falls and Peyto Lake, meet the residents of Banff, a small mountain town at an elevation of 1,380 meters."
+          imageUrl="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2074&auto=format&fit=crop"
+          imagePosition="left"
+        />
+
+        {/* Transport Section */}
+        <SplitContent 
+          eyebrow="Transport"
+          title="How to Move Around?"
+          description="RoutePin provides you with comfortable vans with all the amenities inside. At your disposal: consumer electronics, bathroom, TV, two or more beds, air conditioning, mini fridge, sink and stove, solar-powered electricity."
+          imageUrl="https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?q=80&w=2070&auto=format&fit=crop"
+          imagePosition="right"
+        />
+      </div>
+
+      <DestinationGallery />
+      <WhyRoutePin />
+      <ToursBanner />
+      <TravelPlan />
+    </main>
+  )
 }
